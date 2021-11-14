@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::html_head">
+</head>
+
+<style type="text/css">
+
+    .ml-20{
+        margin-left: 280px;
+    }
+
+
+</style>
+
+<body>
+<div th:replace="template :: menu"></div>
+<div class="container py-4">
+    <div class="card">
+        <div class="card-header h3 indigo text-black-50 font-weight-bold" th:text="Client"></div>
+        <div class="card-body d-flex justify-content-center">
+            <form th:action="@{/formClient}" method="post" class="col-12 col-lg-10">
+
+                <div class="form-group row mt-4" >
+
+                    <label class="col-sm-3 col-form-label">Nom:</label>
+
+                    <div class="col-sm-9">
+
+                        <input type="text"  class="form-control"  placeholder="Nom" name="nom" />
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-4" >
+
+                    <label class="col-sm-3 col-form-label">Adresse:</label>
+
+                    <div class="col-sm-9">
+                        <input type="text"  class="form-control"  placeholder="Adresse" name="adresse" />
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-4" >
+
+                    <label class="col-sm-3 col-form-label">Email:</label>
+
+                    <div class="col-sm-9">
+                        <input type="text"  class="form-control"  placeholder="Email" name="email" />
+                    </div>
+
+                </div>
+
+                <button class="btn btn-success mt-4 ml-20" type="submit">Ajouter</button>
+                <button class="btn mt-4 ml-20" >Annuler</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>

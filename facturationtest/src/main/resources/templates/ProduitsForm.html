@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::html_head">
+</head>
+
+<style type="text/css">
+
+    .ml-20{
+        margin-left: 280px;
+    }
+
+
+</style>
+
+<body>
+<div th:replace="template :: menu"></div>
+<div class="container py-4">
+    <div class="card">
+        <div class="card-header h3 indigo text-black-50 font-weight-bold" th:text="Produit"></div>
+        <div class="card-body d-flex justify-content-center">
+            <form th:action="@{/formProduits}" method="post" class="col-12 col-lg-10">
+
+                <div class="form-group row mt-4" >
+
+                    <label class="col-sm-3 col-form-label">Nom:</label>
+
+                    <div class="col-sm-9">
+
+                        <input type="text"  class="form-control"  placeholder="Nom" name="nom" />
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-4" >
+
+                    <label class="col-sm-3 col-form-label">Code:</label>
+
+                    <div class="col-sm-9">
+                        <input type="text"  class="form-control"  placeholder="Code" name="code" />
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-4" >
+
+                    <label class="col-sm-3 col-form-label">Quantité en stock:</label>
+
+                    <div class="col-sm-9">
+                        <input type="text"  class="form-control"  placeholder="Quantité en stock" name="qteEnStock" />
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-4" >
+
+                    <label class="col-sm-3 col-form-label">Prix unitaire:</label>
+
+                    <div class="col-sm-9">
+                        <input type="text"  class="form-control"  placeholder="Prix unitaire" name="prixUnitaire" />
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-4" >
+
+                    <label class="col-sm-3 col-form-label">Unité:</label>
+
+                    <div class="col-sm-9">
+                        <select  name ="unite" class="form-control" aria-label=".form-select-lg ">
+                            <option value="Tonne">Tonne (T)</option>
+                            <option value="Kilogramme (Kg)">Kilogramme (Kg)</option>
+                            <option value="métre (m)">métre (m)</option>
+                            <option value="unité (u)">unité (u)</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <button class="btn btn-success mt-4 ml-20" type="submit">Ajouter</button>
+                <button class="btn mt-4 ml-20" >Annuler</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>

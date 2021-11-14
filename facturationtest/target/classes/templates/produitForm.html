@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::html_head">
+</head>
+
+<style type="text/css">
+
+    .ml-20{
+        margin-left: 280px;
+    }
+
+
+</style>
+
+<body>
+<div th:replace="template :: menu"></div>
+<button class="btn mt-4 ml-5" ><a th:href="@{/facture(id=${factureid})}">Facture</a></button>
+<div class="container py-4">
+    <div class="card">
+        <div class="card-header h3 indigo text-black-50 font-weight-bold" th:text="Produit"></div>
+        <div class="card-body d-flex justify-content-center">
+            <form th:action="@{/confirm}" method="post" class="col-12 col-lg-10">
+
+                <input type="hidden" th:value="${factureid}" name="factureID"/>
+                <div class="form-group row mt-4" >
+
+                    <label class="col-sm-3 col-form-label">Produit:</label>
+
+                    <div class="col-sm-9">
+                        <!--select  name ="nomClient" class="form-control" aria-label=".form-select-lg ">
+                            <option value="option">option</option>
+                        </select-->
+
+                        <input type="text"  class="form-control"  placeholder="Produit" name="nomProduit" />
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-4" >
+
+                    <label class="col-sm-3 col-form-label">TVA:</label>
+
+                    <div class="col-sm-9">
+                        <input type="text"  class="form-control"  placeholder="Taux de TVA" name="tva" />
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-4" >
+
+                    <label class="col-sm-3 col-form-label">Quantité:</label>
+
+                    <div class="col-sm-9">
+                        <input type="text"  class="form-control"  placeholder="Quantité" name="qte" />
+                    </div>
+
+                </div>
+
+                <button class="btn btn-success mt-4 ml-20" type="submit">Ajouter</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>

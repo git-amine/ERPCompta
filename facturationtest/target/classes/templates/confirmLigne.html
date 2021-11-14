@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::html_head">
+</head>
+
+<style type="text/css">
+
+    .ml-20{
+        margin-left: 280px;
+    }
+
+
+</style>
+
+<body>
+<div th:replace="template :: menu"></div>
+<div class="container py-4 mt-4">
+    <div class="card">
+        <div class="card-header h3 indigo text-black-50 font-weight-bold" th:text="Produit"></div>
+        <div class="card-body d-flex justify-content-center">
+            <form th:action="@{/formProduit}" method="post" class="col-12 col-lg-10">
+
+                <input type="hidden" th:value="${factureid}" name="factureID"/>
+                <div class="form-group row mt-2" >
+
+                    <label class="col-sm-3 col-form-label">Produit:</label>
+
+                    <div class="col-sm-9">
+                        <!--select  name ="nomClient" class="form-control" aria-label=".form-select-lg ">
+                            <option value="option">option</option>
+                        </select-->
+
+                        <span th:text="${nomProduit}"></span>
+                        <input type="hidden" th:value="${nomProduit}" name="nomProduit"/>
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-3" >
+
+                    <label class="col-sm-3 col-form-label">Prix unitaire (DH):</label>
+
+                    <div class="col-sm-9">
+                        <span th:text="${prixUnitaire}"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-3" >
+
+                    <label class="col-sm-3 col-form-label">Unité:</label>
+
+                    <div class="col-sm-9">
+                        <span th:text="${unite}"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-3" >
+
+                    <label class="col-sm-3 col-form-label">Quantité:</label>
+
+                    <div class="col-sm-9">
+                        <span th:text="${qte}"></span>
+                        <input type="hidden" th:value="${qte}" name="qte"/>
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-3" >
+
+                    <label class="col-sm-3 col-form-label">TVA(%):</label>
+
+                    <div class="col-sm-9">
+                        <span th:text="${tva}" ></span>
+                        <input type="hidden" th:value="${tva}" name="tva"/>
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-3" >
+
+                    <label class="col-sm-3 col-form-label">Montant HT (DH):</label>
+
+                    <div class="col-sm-9">
+                        <span th:text="${montantHT}"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-3" >
+
+                    <label class="col-sm-3 col-form-label">Montant TVA (DH):</label>
+
+                    <div class="col-sm-9">
+                        <span th:text="${montantTVA}"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row mt-3" >
+
+                    <label class="col-sm-3 col-form-label">Montant TTC (DH):</label>
+
+                    <div class="col-sm-9">
+                        <span th:text="${montantTTC}"></span>
+                    </div>
+
+                </div>
+
+                <button class="btn btn-success mt-4 ml-20" type="submit">Confirmer</button>
+                <button class="btn mt-4 ml-5"><a href="/produit">Annuler</a></button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</body>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::html_head">
+</head>
+
+<title>Projets</title>
+
+<body>
+<div th:replace="template :: menu"></div>
+<div>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <ul class="navbar navbar-nav">
+            <li>
+                <button  th:onclick="|window.location.href='/ventes/clients'|" class="btn btn-sm btn-outline-info ml-2">Clients</button>
+            </li>
+            <li>
+                <button  th:onclick="|window.location.href='/ventes/produits'|" class="btn btn-sm btn-outline-info ml-2">Produits</button>
+            </li>
+            <li>
+                <button  th:onclick="|window.location.href='/ventes/factures'|" class="btn btn-sm btn-outline-info ml-2">Factures</button>
+            </li>
+
+            <li>
+                <a th:href="@{/formClient}"  class="btn btn-sm btn-outline-info ml-2" role="button">Créer client</a>
+            </li>
+
+            <li>
+                <a th:href="@{/formProduits}"  class="btn btn-sm btn-outline-info ml-2" role="button">Créer produit</a>
+            </li>
+
+            <li>
+                <a th:href="@{/formFacture}"  class="btn btn-sm btn-outline-info ml-2" role="button">Créer facture</a>
+            </li>
+
+        </ul>
+
+        <ul class="navbar navbar-nav ml-auto">
+            <li>
+                <form th:action="@{/search}"  method="get" class="form-inline" >
+                    <div class="form-group">
+                        <input   name="keyword" type="text">
+                        <button type="submit" class="btn btn-sm btn-outline-info ml-2">
+                            <span class="fa fa-search"></span>
+                        </button>
+
+                    </div>
+                </form>
+            </li>
+
+        </ul>
+
+    </nav>
+</div>
+
+<div class="container"  >
+    <table class="table">
+        <tr>
+            <th>Référence</th><th>Client</th><th>Date de création</th><th>Date d'échéance</th><th>total HT</th><th>total TVA </th><th>total TTC</th>
+
+        </tr>
+
+        <tr th:each="f:${factures}">
+            <td th:text="${f.ref}"></td>
+            <td th:text="${f.nomClient}"></td>
+            <td th:text="${f.dateCreation}"></td>
+            <td th:text="${f.echeance}"></td>
+            <td th:text="${f.totalHT}"></td>
+            <td th:text="${f.totalTVA}"></td>
+            <td th:text="${f.totalTTC}"></td>
+
+        </tr>
+
+    </table>
+
+
+</div>
+
+</body>
+</html>
